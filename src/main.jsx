@@ -6,6 +6,8 @@ import AppRoute from './assets/Routes/AppRoute.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+   <div className='max-w-screen-xl mx-auto'>
    <AppRoute/>
+   </div>
   </StrictMode>,
 )

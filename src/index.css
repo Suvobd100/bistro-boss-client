@@ -1,2 +1,30 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+
+
 @import "tailwindcss";
 @plugin "daisyui";
+
+@theme {
+    --font-Cinzel: "Cinzel", serif;
+    
+  }
+
+
+/* Center thumbnails */
+.centered-thumbs .thumbs-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Optional: Improve thumbnail appearance */
+  .centered-thumbs .thumb {
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    margin: 0 4px;
+  }
+  
+  .centered-thumbs .thumb.selected, 
+  .centered-thumbs .thumb:hover {
+    border-color: #3b82f6; /* Blue border for selected/hover */
+  }

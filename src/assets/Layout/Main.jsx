@@ -1,12 +1,13 @@
 import { Outlet } from "react-router-dom";
 import Footer from "../../pages/Shared/Footer/Footer";
+import NavBar from "../../pages/Shared/NavBar/NavBar";
 
 const Main = () => {
   return (
-    <div className="font-Poppins bg-stone-200">
+    <div className="font-Cinzel bg-stone-200">
       <header>
-        {/* <Navbar /> */}
-        <h2>Nav</h2>
+        <NavBar />
+      
       </header>
 
       <main className="min-h-[calc(100vh-230px)] ">
