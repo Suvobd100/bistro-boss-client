@@ -54,7 +54,7 @@ const Testimonials = () => {
             <div className=" flex flex-col items-center m-16">
               <Rating style={{ maxWidth: 250 }} value={review.rating} />
               {/* double qouts */}
-              <span className="w-20 font-extrabold transform rotate-[180deg] mt-2">
+              <span className="w-24 font-extrabold transform rotate-[180deg] mt-2">
                 <img src={doubleQuotes} alt="" />
               </span>
               {/* <span>
