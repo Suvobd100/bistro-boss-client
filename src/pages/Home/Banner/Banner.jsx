@@ -11,32 +11,34 @@ import img6 from "../../../assets/home/06.png";
 
 const Banner = () => {
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="w-full">
+    {/* <div className="max-w-4xl mx-auto"> */}
       {/* Don't override renderThumbs - use CSS instead */}
       <Carousel
         showThumbs={true}
         thumbWidth={80}
-        className="centered-thumbs"
+        className="w-full centered-thumbs"
+        // className="centered-thumbs"
         autoPlay={true}          // Enable auto-sliding
         infiniteLoop={true}      // Loop continuously
-        interval={3000}         // 3 seconds between slides
+        interval={5000}         // 5 seconds between slides
       >
-        <div>
+        <div className="mt-10">
           <img src={img1} alt="Slide 1" />
         </div>
-        <div>
+        <div className="mt-10">
           <img src={img2} alt="Slide 2" />
         </div>
-        <div>
+        <div className="mt-10">
           <img src={img3} alt="Slide 3" />
         </div>
-        <div>
+        <div className="mt-10">
           <img src={img4} alt="Slide 4" />
         </div>
-        <div>
+        <div className="mt-10">
           <img src={img5} alt="Slide 5" />
         </div>
-        <div>
+        <div className="mt-10">
           <img src={img6} alt="Slide 6" />
         </div>
       </Carousel>

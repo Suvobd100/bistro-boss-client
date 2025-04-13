@@ -6,7 +6,7 @@ const NavBar = () => {
       <li>
         <Link to={"/menu"}>Our Menu</Link>
       </li>
-    
+
       <li>
         <a>Item 3</a>
       </li>
@@ -35,19 +35,27 @@ const NavBar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-stone-500 rounded-box z-1 mt-3 w-52 p-2 shadow">
+            className="menu menu-sm dropdown-content bg-stone-500 rounded-box z-1 mt-3 w-52 p-2 shadow"
+          >
             {navOptions}
           </ul>
         </div>
+        
         <div className="flex flex-col text-center">
-        <a className="btn btn-ghost text-3xl font-black uppercase">Bistro Boss</a>
-        <h4 className="tracking-[6px]">RESTAURANT</h4>
+          <Link
+            to={"/"}
+            
+          >
+            <div className="btn btn-ghost text-3xl font-black uppercase"> Bistro Boss</div>
+           
+         
+          <h4 className="tracking-[6px]">RESTAURANT</h4>
+          </Link>
         </div>
+        
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-         {navOptions}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{navOptions}</ul>
       </div>
       <div className="navbar-end">
         <a className="btn">Button</a>

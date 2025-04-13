@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "vite"
   },
   "dependencies": {
     "@smastrom/react-rating": "^1.5.0",
@@ -17,6 +18,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-helmet-async": "^2.0.5",
+    "react-parallax": "^3.5.2",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^7.5.0",
     "swiper": "^11.2.6",
