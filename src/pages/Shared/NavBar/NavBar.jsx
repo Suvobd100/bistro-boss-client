@@ -6,10 +6,11 @@ const NavBar = () => {
       <li>
         <Link to={"/menu"}>Our Menu</Link>
       </li>
-
       <li>
-        <a>Item 3</a>
+        <Link to={"/order"}>Order Food</Link>
       </li>
+
+      
     </>
   );
   return (

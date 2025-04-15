@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 // import { Helmet } from "react-helmet-async";
 import Cover from "../../Shared/Cover/Cover";
 import menuImg from "../../../assets/menu/banner3.jpg";
@@ -9,19 +9,19 @@ import soupImg from "../../../assets/menu/soup-bg.jpg";
 import useMenu from "../../../assets/hooks/useMenu";
 import SectionTitle from "../../../assets/components/SectionTitle/SectionTitle";
 import MenuCategory from "../MenuCategory/MenuCategory";
+import { Helmet } from "react-helmet-async";
 
 const Menu = () => {
-  // for helmet use
-  useEffect(() => {
-    document.title = "Bistro Boss |🍔 Menu Page"; // 🛠️ Force it manually
-  }, []);
+  // // for helmet use
+  // useEffect(() => {
+  //   document.title = "Bistro Boss |🍔 Menu Page"; //  Force it manually
+  // }, []);
 
   // Menu  all data load by custom hook useMenu
 
   const { menuData } = useMenu();
 
-  const desserts =
-    menuData?.filter((item) => item.category === "dessert") || [];
+  const desserts = menuData?.filter((item) => item.category === "dessert") || [];
   const soup = menuData?.filter((item) => item.category === "soup") || [];
   const salad = menuData?.filter((item) => item.category === "salad") || [];
   const pizza = menuData?.filter((item) => item.category === "pizza") || [];
@@ -30,11 +30,10 @@ const Menu = () => {
 
   return (
     <div>
-      {/* helmet not work version problem update react */}
-      {/* <Helmet>
-        <title>Hello World</title>
-        <meta name="description" content="Test Helmet description" />
-      </Helmet> */}
+      <Helmet>
+              <title>Bistro Boss | 🍔 Menu Page</title>
+              {/* <link rel="canonical" href="https://www.tacobell.com/" /> */}
+            </Helmet>
 
       <Cover bgImg={menuImg} title={"our menu"} />
       {/* main cover */}
@@ -47,7 +46,7 @@ const Menu = () => {
       <div >
         <MenuCategory
           items={desserts}
-          title={"Deserts"}
+          title={"deserts"}
           coverImg={dessertImg}
         />
       </div>
