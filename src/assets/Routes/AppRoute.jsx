@@ -6,6 +6,10 @@ import Menu from "../../pages/Menu/Menu/Menu"
 import Order from "../../pages/order/order/order"
 import Login from "../../pages/Login/Login/Login"
 import SignUp from "../../pages/SignUp/SignUp"
+import PrivateLayout from "../Layout/PrivateLayout"
+import AuthLayout from "../Layout/AuthLayout"
+import PrivateRoute from "./PrivateRoute"
+import NotFound from "../../pages/NotFound/NotFound"
 
 
 
@@ -19,11 +23,25 @@ const AppRoute = () => {
             <Route path="/" element={<Main/>}>
                 <Route index element={<Home/>}/>
                 <Route path="menu" element={<Menu/>}/>
-                <Route path="order/:category" element={<Order/>}/>
-                <Route path="login" element={<Login/>}/>
-                <Route path="signup" element={<SignUp/>}/>
+                {/* <Route path="order/:category" element={<Order/>}/> */}
+                {/* <Route path="login" element={<Login/>}/> */}
+                {/* <Route path="signup" element={<SignUp/>}/> */}
+                <Route path="*" element={<NotFound />} />
 
             </Route>
+            {/* Private route */}
+        <Route path="/priv" element={<PrivateLayout/>}>
+          
+          <Route path="order/:category" element={<PrivateRoute><Order/></PrivateRoute>}/>
+
+
+        </Route>
+
+        {/* AuthLayout Routes */}
+        <Route path="/auth" element={<AuthLayout />}>
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<SignUp/>} />
+        </Route>
         </Routes>
      
     // </BrowserRouter>
