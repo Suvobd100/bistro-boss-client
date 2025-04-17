@@ -1,13 +1,21 @@
 /* google font */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Raleway:wght@400;500&display=swap');
 
 
 @import "tailwindcss";
 @plugin "daisyui";
-
+/* 
 @theme {
     --font-Cinzel: "Cinzel", serif;
     
+  } */
+  body {
+    font-family: 'Raleway', sans-serif; /* Normal text */
+  }
+  
+  h1, h2, h3, .cinzel {
+    font-family: 'Cinzel', serif; /* Decorative headings */
   }
 
 

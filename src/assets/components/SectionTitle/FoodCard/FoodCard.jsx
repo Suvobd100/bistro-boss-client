@@ -6,7 +6,7 @@ const FoodCard = ({ item }) => {
         <img src={image} alt="Shoes" />
       </figure>
       <p className="absolute right-0 mr-4 mt-4 px-4 bg-slate-900 text-white">$ {price}</p>
-      <div className="card-body text-center">
+      <div className="card-body text-center flex justify-center items-center ">
         <h2 className="card-title">{name}</h2>
         <p>
           A card component has a figure, a body part, and inside body there are

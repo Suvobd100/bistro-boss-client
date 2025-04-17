@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter } from "react-router-dom";
+import AuthProvider from "./providers/AuthProvider.jsx";
 
 // Create a SINGLE instance of QueryClient
 const queryClient = new QueryClient({
@@ -17,14 +18,16 @@ const queryClient = new QueryClient({
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-        <div className="max-w-screen-xl mx-auto">
-          <AppRoute />
-        </div>
-        </BrowserRouter>
-      </QueryClientProvider>
-    </HelmetProvider>
+    <AuthProvider>
+      <HelmetProvider>
+        <QueryClientProvider client={queryClient}>
+          <BrowserRouter>
+            <div className="max-w-screen-xl mx-auto">
+              <AppRoute />
+            </div>
+          </BrowserRouter>
+        </QueryClientProvider>
+      </HelmetProvider>
+    </AuthProvider>
   </StrictMode>
 );

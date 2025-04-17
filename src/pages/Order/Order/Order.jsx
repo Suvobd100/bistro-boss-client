@@ -34,7 +34,7 @@ const Order = () => {
   return (
     <div>
       <Helmet>
-        <title>Bistro Boss | Order</title>
+        <title>Bistro Boss | 📃 Order</title>
         {/* <link rel="canonical" href="https://www.tacobell.com/" /> */}
       </Helmet>
       <Cover bgImg={orderCoverImg} title={"order food"} />
