@@ -29,12 +29,22 @@ const AppRoute = () => {
 
       {/* dash board */}
       <Route path="/dashboard" element={<Dashboard />}>
-        <Route path="cart" element={<Cart/>} />
+      {/* old path public */}
+        {/* <Route path="cart" element={<Cart/>} /> */}
+       
       </Route>
 
       {/* Private route */}
       <Route path="/priv" element={<PrivateLayout />}>
         {/* <Route path="order/:category" element={<PrivateRoute><Order/></PrivateRoute>}/> */}
+        {/* <Route path="cart" element={<Cart/>} /> */}
+        <Route path="dashboard" element={<Dashboard />}>
+      {/* old path public */}
+        {/* <Route path="cart" element={<Cart/>} /> */}
+        <Route path="cart" element={<PrivateRoute><Cart/></PrivateRoute>} />
+       
+      </Route>
+        {/* <Route path="cart" element={<PrivateRoute><Cart/></PrivateRoute>} /> */}
       </Route>
 
       {/* AuthLayout Routes */}

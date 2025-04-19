@@ -37,7 +37,7 @@ const Dashboard = () => {
           <li>
             <NavLink to={"/dashboard/cart"}>
               <FaShoppingCart />
-              My Cart ({dataCart.length})
+              My Cart ({dataCart?.length})
             </NavLink>
           </li>
           <li>

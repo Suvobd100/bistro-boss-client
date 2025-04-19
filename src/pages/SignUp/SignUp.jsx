@@ -4,8 +4,10 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../assets/hooks/useAxiosPublic";
 
 const SignUp = () => {
+  const axiosPublic = useAxiosPublic();
   const {
     register,
     handleSubmit,
@@ -13,29 +15,49 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
 
-  const { createUser ,updateUserProfile} = useContext(AuthContext);
-  const navigate=useNavigate()
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     createUser(data.email, data.password).then((res) => {
       const loggedUser = res.user;
       console.log(loggedUser);
       updateUserProfile(data.name, data.photoURL)
-      .then(()=>{
-        console.log('User created');
-        reset();
-        // sweet alert
-        Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "User Profile updated....",
-            showConfirmButton: false,
-            timer: 1500
+        .then(() => {
+          // console.log('User created');
+          // create user in db
+          const userInfo = {
+            name: data.name,
+            email: data.email,
+          };
+          axiosPublic.post("users/", userInfo).then((res) => {
+            if (res.data.insertedId) {
+              console.log('user added to db');
+              reset();
+              // sweet alert
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "User Profile updated....",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate("/");
+            }
           });
-          navigate('/')
-      })
-      .catch(error=> console.log(error))
+          // reset();
+          // // sweet alert
+          // Swal.fire({
+          //   position: "top-end",
+          //   icon: "success",
+          //   title: "User Profile updated....",
+          //   showConfirmButton: false,
+          //   timer: 1500,
+          // });
+          // navigate("/");
+        })
+        .catch((error) => console.log(error));
     });
   };
 
