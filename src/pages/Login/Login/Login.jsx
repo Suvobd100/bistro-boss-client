@@ -9,6 +9,7 @@ import {
 import { AuthContext } from "../../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import SocialLogin from "../../../assets/components/SectionTitle/SocialLogin/SocialLogin";
 
 const Login = () => {
   //   const captchaRef = useRef(null);
@@ -136,13 +137,15 @@ const Login = () => {
                 </button>
               </fieldset>
             </form>
-            <p>
+            <p className="px-6">
               <small>
                 New Here? <Link to="/auth/signup">Sign Up</Link>
               </small>
             </p>
+            <SocialLogin/>
           </div>
         </div>
+        
       </div>
       <button 
       onClick={handleGoBack}
