@@ -16,7 +16,7 @@ const Login = () => {
   const location = useLocation();
 
   const from = location.state?.from?.pathname || "/";
-  console.log(from);
+  console.log('state on location',location.state);
 
   const [disabled, setDisabled] = useState(true);
 
@@ -33,6 +33,7 @@ const Login = () => {
     const password = form.password.value;
     // const captcha = form.captcha.value;
     console.log(email, password);
+
     signIn(email, password).then((res) => {
       const user = res.user;
       console.log(user);
@@ -69,6 +70,10 @@ const Login = () => {
     } else {
       alert("Captcha Does Not Match");
     }
+  };
+  // go back
+  const handleGoBack = () => {
+    navigate(-1); // Go back to previous page
   };
   return (
     <div>
@@ -133,12 +138,15 @@ const Login = () => {
             </form>
             <p>
               <small>
-                New Here? <Link to="/signup">Sign Up</Link>
+                New Here? <Link to="/auth/signup">Sign Up</Link>
               </small>
             </p>
           </div>
         </div>
       </div>
+      <button 
+      onClick={handleGoBack}
+      className="btn btn-accent">Go Back</button>
     </div>
   );
 };
