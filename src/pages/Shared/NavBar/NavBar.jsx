@@ -2,9 +2,12 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { FaShoppingCart } from "react-icons/fa";
+import useCart from "../../../assets/hooks/useCart";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const cart = useCart();
+  console.log("Cart items:", cart); // Should now show the actual array
 
   const handleLogOut = () => {
     logOut()
@@ -29,8 +32,8 @@ const NavBar = () => {
       <li>
         <Link to={"/"}>
           <button className="btn">
-            <FaShoppingCart className="mr-1"/>
-            <div className="badge badge-sm badge-secondary">+0</div>
+            <FaShoppingCart className="mr-1" />
+            <div className="badge badge-sm badge-secondary">+{cart.length}</div>
           </button>
         </Link>
       </li>
