@@ -6,7 +6,7 @@ import useCart from "../../../assets/hooks/useCart";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
-  const cart = useCart();
+  const { cart } = useCart(); // Destructure properly
   console.log("Cart items:", cart); // Should now show the actual array
 
   const handleLogOut = () => {
@@ -30,10 +30,10 @@ const NavBar = () => {
         <Link to={"/order/salad"}>Order Food</Link>
       </li>
       <li>
-        <Link to={"/"}>
+        <Link to={"/dashboard/cart"}>
           <button className="btn">
             <FaShoppingCart className="mr-1" />
-            <div className="badge badge-sm badge-secondary">+{cart.length}</div>
+            <div className="badge badge-sm badge-secondary">+{cart?.data?.length}</div>
           </button>
         </Link>
       </li>

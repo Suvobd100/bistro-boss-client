@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useCart from "../../../hooks/useCart";
 
 const FoodCard = ({ item }) => {
   const { name, image, price, recipe, _id } = item;
@@ -9,35 +10,39 @@ const FoodCard = ({ item }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const axiosSecure = useAxiosSecure();
+  const { refetch } = useCart(); // Destructure properly from object
 
   const handleAddToCart = () => {
     if (user && user.email) {
       const cartItem = {
-        menuId: _id,  // Fixed: Changed from IdleDeadline to _id
+        menuId: _id, // Fixed: Changed from IdleDeadline to _id
         email: user.email,
         name,
         image,
-        price
+        price,
       };
 
-      axiosSecure.post('/carts', cartItem)
-        .then(res => {
+      axiosSecure
+        .post("/carts", cartItem)
+        .then((res) => {
           if (res.data.insertedId) {
             Swal.fire({
               position: "top-end",
               icon: "success",
               title: `${name} added to your cart`,
               showConfirmButton: false,
-              timer: 1500
+              timer: 1500,
             });
+            // refetch card
+            refetch();
           }
         })
-        .catch(error => {
-          console.error('Error adding to cart:', error);
+        .catch((error) => {
+          console.error("Error adding to cart:", error);
           Swal.fire({
-            icon: 'error',
-            title: 'Failed to add to cart',
-            text: error.response?.data?.message || 'Something went wrong'
+            icon: "error",
+            title: "Failed to add to cart",
+            text: error.response?.data?.message || "Something went wrong",
           });
         });
     } else {
@@ -69,10 +74,7 @@ const FoodCard = ({ item }) => {
         <h2 className="card-title">{name}</h2>
         <p>{recipe}</p>
         <div className="card-actions justify-end">
-          <button
-            onClick={handleAddToCart}
-            className="btn btn-primary"
-          >
+          <button onClick={handleAddToCart} className="btn btn-primary">
             Add to Cart
           </button>
         </div>
